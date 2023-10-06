@@ -6,10 +6,10 @@ from datetime import *
 try:
   num_participantes = int(
       input("Quantas pessoas participarão da brincadeira? "))
-  if num_participantes <= 0:
+  if num_participantes <= 1:
     raise ValueError
   num_vencedores = int(input("Quantas pessoas vão vencer o jogo? "))
-  if num_vencedores >= num_participantes or num_vencedores < 0:
+  if num_vencedores >= num_participantes or num_vencedores <= 0:
     raise IndexError
 
   jogo = Jogo(num_participantes, num_vencedores)
@@ -45,7 +45,7 @@ except AttributeError:
   print('opção inválida.')
 
 except ValueError:
-  print('O número de participantes precisa ser maior que 0.')
+  print('O número de participantes precisa ser maior que 1.')
 
 except IndexError:
   print('O número de vencedores precisa ser maior que 0 e menor que o número de participantes.')
